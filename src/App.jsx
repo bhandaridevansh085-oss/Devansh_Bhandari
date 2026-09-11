@@ -410,7 +410,7 @@ function App() {
           <div className="hero-photo-wrap">
 
             <img
-              src="/profile.jpg"
+              src="/profile1.jpeg"
               alt="Devansh Bhandari"
               className="hero-photo"
             />
