@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import {
   Phone,
   MapPin,
@@ -56,7 +57,7 @@ const GmailIcon = ({ size = 20 }) => (
 );
 
 /* =========================
-   TECHNOLOGY ICONS
+   TECH ICONS
 ========================= */
 
 const TechIcon = ({ name }) => {
@@ -199,7 +200,7 @@ const projects = [
       "Java",
     ],
     link: "https://watchnow-theta.vercel.app/",
-    status: "Completed",
+    status: "Almost Completed",
   },
 
   {
@@ -250,20 +251,59 @@ const certifications = [
 ========================= */
 
 function App() {
+  /* =========================
+     SECRET AUDIO
+  ========================= */
+
+  const secretAudio = useRef(null);
+
+  const playSecretSound = () => {
+    if (!secretAudio.current) return;
+
+    // 2 minutes 15 seconds = 135 seconds
+    secretAudio.current.currentTime = 135;
+
+    secretAudio.current
+      .play()
+      .catch((error) => {
+        console.log("Audio could not play:", error);
+      });
+  };
+
   return (
     <div className="app">
 
-      {/* SIDEBAR */}
+      {/* SECRET AUDIO FILE */}
+
+      <audio
+        ref={secretAudio}
+        src="/secret.mp3"
+        preload="auto"
+      />
+
+      {/* =========================
+          SIDEBAR
+      ========================= */}
 
       <aside className="side-nav">
 
-        <a href="#home" className="side-logo">
+        {/* Hidden Easter egg trigger */}
+        <button
+          className="side-logo secret-trigger"
+          onClick={playSecretSound}
+          aria-label="Secret"
+          type="button"
+        >
           DB
-        </a>
+        </button>
 
         <nav className="side-links">
+
           {sections.map(([id, name], index) => (
-            <a href={`#${id}`} key={id}>
+            <a
+              href={`#${id}`}
+              key={id}
+            >
               <span>
                 0{index + 1}
               </span>
@@ -271,6 +311,7 @@ function App() {
               {name}
             </a>
           ))}
+
         </nav>
 
         <div className="side-bottom">
@@ -297,6 +338,10 @@ function App() {
 
       </aside>
 
+      {/* =========================
+          MAIN
+      ========================= */}
+
       <main className="main">
 
         {/* TOP BAR */}
@@ -317,7 +362,9 @@ function App() {
 
         </header>
 
-        {/* HOME */}
+        {/* =========================
+            HOME
+        ========================= */}
 
         <section
           id="home"
@@ -363,12 +410,13 @@ function App() {
           <div className="hero-photo-wrap">
 
             <img
-              src="/profile.jpeg"
+              src="/profile.jpg"
               alt="Devansh Bhandari"
               className="hero-photo"
             />
 
             <div className="photo-caption">
+
               <span>
                 Ludhiana, Punjab
               </span>
@@ -376,13 +424,16 @@ function App() {
               <span>
                 India
               </span>
+
             </div>
 
           </div>
 
         </section>
 
-        {/* ACADEMICS */}
+        {/* =========================
+            ACADEMICS
+        ========================= */}
 
         <section
           id="academics"
@@ -477,7 +528,9 @@ function App() {
 
         </section>
 
-        {/* SKILLS */}
+        {/* =========================
+            SKILLS
+        ========================= */}
 
         <section
           id="skills"
@@ -564,7 +617,9 @@ function App() {
 
         </section>
 
-        {/* PROJECTS */}
+        {/* =========================
+            PROJECTS
+        ========================= */}
 
         <section
           id="projects"
@@ -641,6 +696,7 @@ function App() {
                       </div>
 
                       {project.link !== "#" && (
+
                         <a
                           href={project.link}
                           target="_blank"
@@ -650,6 +706,7 @@ function App() {
                           Live project
                           <ExternalLink size={14} />
                         </a>
+
                       )}
 
                     </div>
@@ -666,7 +723,9 @@ function App() {
 
         </section>
 
-        {/* CERTIFICATIONS */}
+        {/* =========================
+            CERTIFICATIONS
+        ========================= */}
 
         <section
           id="certifications"
@@ -732,7 +791,9 @@ function App() {
 
         </section>
 
-        {/* CONTACT */}
+        {/* =========================
+            CONTACT
+        ========================= */}
 
         <section
           id="contact"
@@ -771,7 +832,7 @@ function App() {
                   href="mailto:bhandaridevansh085@gmail.com"
                   className="email-link"
                 >
-                  bhandaridevansh085@gmail.com
+                  bhandaridevans085@gmail.com
                   <ArrowUpRight size={16} />
                 </a>
 
@@ -780,7 +841,7 @@ function App() {
               <div className="contact-details">
 
                 <a
-                  href="mailto:bhandaridevansh085@gmail.com"
+                  href="mailto:bhandaridevans085@gmail.com"
                   className="contact-detail"
                 >
                   <GmailIcon />

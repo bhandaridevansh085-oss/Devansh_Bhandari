@@ -537,3 +537,14 @@ footer {
     gap: 10px;
   }
 }
+.secret-trigger {
+  font-family: "DM Mono", monospace;
+  cursor: pointer;
+  color: #fff;
+  background: transparent;
+  appearance: none;
+}
+
+.secret-trigger:hover {
+  border-color: #666;
+}
