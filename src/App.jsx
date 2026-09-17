@@ -189,6 +189,7 @@ const projects = [
     number: "01",
     title: "WatchNow",
     type: "Movie Catalog & AI Recommendation System",
+    image: "/watchnow.png",
     description:
       "A full-stack movie platform for browsing, searching and filtering movies by genre, rating and release year. It also includes Abyss, a recommendation model designed to generate personalized movie recommendations based on viewing preferences and behavior.",
     tech: [
@@ -205,8 +206,9 @@ const projects = [
 
   {
     number: "02",
-    title: "StudyNotion",
+    title: "LearnBridge",
     type: "Peer-to-Peer Study Platform",
+    image: "/learnbridge.jpeg",
     description:
       "A peer-to-peer learning platform connecting seniors and juniors for knowledge sharing, tutoring and paid learning opportunities.",
     tech: [
@@ -263,11 +265,9 @@ function App() {
     // 2 minutes 15 seconds = 135 seconds
     secretAudio.current.currentTime = 135;
 
-    secretAudio.current
-      .play()
-      .catch((error) => {
-        console.log("Audio could not play:", error);
-      });
+    secretAudio.current.play().catch((error) => {
+      console.log("Audio could not play:", error);
+    });
   };
 
   return (
@@ -665,6 +665,18 @@ function App() {
 
                   </div>
 
+                  {/* PROJECT IMAGE */}
+
+                  <div className="project-image-wrap">
+
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="project-image"
+                    />
+
+                  </div>
+
                   <div className="project-body">
 
                     <div>
@@ -832,7 +844,7 @@ function App() {
                   href="mailto:bhandaridevansh085@gmail.com"
                   className="email-link"
                 >
-                  bhandaridevans085@gmail.com
+                  bhandaridevansh085@gmail.com
                   <ArrowUpRight size={16} />
                 </a>
 
@@ -841,7 +853,7 @@ function App() {
               <div className="contact-details">
 
                 <a
-                  href="mailto:bhandaridevans085@gmail.com"
+                  href="mailto:bhandaridevansh085@gmail.com"
                   className="contact-detail"
                 >
                   <GmailIcon />
