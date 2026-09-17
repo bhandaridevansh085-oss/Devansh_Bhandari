@@ -273,7 +273,7 @@ function App() {
   return (
     <div className="app">
 
-      {/* SECRET AUDIO FILE */}
+      {/* SECRET AUDIO */}
 
       <audio
         ref={secretAudio}
@@ -287,7 +287,6 @@ function App() {
 
       <aside className="side-nav">
 
-        {/* Hidden Easter egg trigger */}
         <button
           className="side-logo secret-trigger"
           onClick={playSecretSound}
@@ -405,7 +404,7 @@ function App() {
 
           </div>
 
-          {/* PHOTO */}
+          {/* PROFILE PHOTO */}
 
           <div className="hero-photo-wrap">
 
@@ -665,61 +664,65 @@ function App() {
 
                   </div>
 
-                  {/* PROJECT IMAGE */}
+                  {/* IMAGE + PROJECT INFORMATION */}
 
-                  <div className="project-image-wrap">
+                  <div className="project-content-row">
 
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="project-image"
-                    />
+                    <div className="project-image-wrap">
 
-                  </div>
-
-                  <div className="project-body">
-
-                    <div>
-
-                      <span className="project-type">
-                        {project.type}
-                      </span>
-
-                      <h3>
-                        {project.title}
-                      </h3>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="project-image"
+                      />
 
                     </div>
 
-                    <div className="project-description">
+                    <div className="project-body">
 
-                      <p>
-                        {project.description}
-                      </p>
+                      <div>
 
-                      <div className="project-tech">
+                        <span className="project-type">
+                          {project.type}
+                        </span>
 
-                        {project.tech.map((tech) => (
-                          <span key={tech}>
-                            {tech}
-                          </span>
-                        ))}
+                        <h3>
+                          {project.title}
+                        </h3>
 
                       </div>
 
-                      {project.link !== "#" && (
+                      <div className="project-description">
 
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="project-live"
-                        >
-                          Live project
-                          <ExternalLink size={14} />
-                        </a>
+                        <p>
+                          {project.description}
+                        </p>
 
-                      )}
+                        <div className="project-tech">
+
+                          {project.tech.map((tech) => (
+                            <span key={tech}>
+                              {tech}
+                            </span>
+                          ))}
+
+                        </div>
+
+                        {project.link !== "#" && (
+
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="project-live"
+                          >
+                            Live project
+                            <ExternalLink size={14} />
+                          </a>
+
+                        )}
+
+                      </div>
 
                     </div>
 

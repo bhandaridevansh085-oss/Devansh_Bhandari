@@ -549,12 +549,19 @@ footer {
   border-color: #666;
 }
 /* =========================
-   PROJECT IMAGES
+   PROJECT LAYOUT
 ========================= */
 
+.project-content-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 35px;
+}
+
 .project-image-wrap {
-  width: 100%;
-  margin-bottom: 38px;
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
   border: 1px solid #292d32;
   overflow: hidden;
 }
@@ -562,17 +569,40 @@ footer {
 .project-image {
   display: block;
   width: 100%;
-  height: 360px;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
 .project-image:hover {
-  transform: scale(1.01);
+  transform: scale(1.03);
+}
+
+.project-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
 }
 
 @media (max-width: 720px) {
-  .project-image {
-    height: 220px;
+
+  .project-content-row {
+    gap: 20px;
   }
+
+  .project-image-wrap {
+    width: 100px;
+    height: 100px;
+  }
+
+  .project-body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .project-body h3 {
+    font-size: 32px;
+  }
+
 }
