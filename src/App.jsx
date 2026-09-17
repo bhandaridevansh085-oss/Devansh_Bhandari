@@ -34,7 +34,7 @@ const LinkedinIcon = ({ size = 20 }) => (
     fill="currentColor"
     aria-hidden="true"
   >
-    <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.54 20.45h3.56V8.98H3.54v11.47ZM22.22 0H1.78C.8 0 0 .8 0 1.78v20.44C0 23.2.8 24 1.78 24h20.44c.98 0 1.78-.8 1.78-1.78V1.78C24 .8 23.2 0 22.22 0Z" />
+    <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.54 20.45h3.56V8.98H3.54v11.47ZM22.22 0H1.78C.8 0 0 .8 0 1.78v20.44C0 23.2.8 24 1.78 24h20.44C23.2 24 24 .8 24 1.78V1.78C24 .8 23.2 0 22.22 0Z" />
   </svg>
 );
 
@@ -135,6 +135,12 @@ const TechIcon = ({ name }) => {
         ⌁
       </span>
     ),
+
+    "Socket.io": (
+      <span className="tech-logo socket-logo">
+        S
+      </span>
+    ),
   };
 
   return logos[name] || null;
@@ -201,7 +207,7 @@ const projects = [
       "Java",
     ],
     link: "https://watchnow-theta.vercel.app/",
-    status: "Almost Completed",
+    status: "Completed",
   },
 
   {
@@ -220,6 +226,23 @@ const projects = [
     ],
     link: "#",
     status: "Completed · Group Project",
+  },
+
+  {
+    number: "03",
+    title: "Between Us",
+    type: "Anonymous Random Chat App",
+    image: "/betweenus.png",
+    description:
+      "An anonymous random chat platform designed to connect strangers for spontaneous conversations. Users can meet someone new and start a private conversation without revealing their identity.",
+    tech: [
+      "React",
+      "Node.js",
+      "Express",
+      "Socket.io",
+    ],
+    link: "#",
+    status: "Completed",
   },
 ];
 
@@ -262,7 +285,7 @@ function App() {
   const playSecretSound = () => {
     if (!secretAudio.current) return;
 
-    // 2 minutes 15 seconds = 135 seconds
+    // 2 minutes 15 seconds
     secretAudio.current.currentTime = 135;
 
     secretAudio.current.play().catch((error) => {
@@ -404,7 +427,7 @@ function App() {
 
           </div>
 
-          {/* PROFILE PHOTO */}
+          {/* PHOTO */}
 
           <div className="hero-photo-wrap">
 
@@ -582,6 +605,7 @@ function App() {
                           skill === "REST APIs";
 
                         return (
+
                           <div
                             className={`skill-item ${
                               textOnly
@@ -600,6 +624,7 @@ function App() {
                             </span>
 
                           </div>
+
                         );
                       })}
 
@@ -652,6 +677,8 @@ function App() {
                   key={project.number}
                 >
 
+                  {/* PROJECT TOP */}
+
                   <div className="project-top">
 
                     <span className="project-number">
@@ -664,9 +691,11 @@ function App() {
 
                   </div>
 
-                  {/* IMAGE + PROJECT INFORMATION */}
+                  {/* PROJECT CONTENT */}
 
                   <div className="project-content-row">
+
+                    {/* PROJECT LOGO */}
 
                     <div className="project-image-wrap">
 
@@ -677,6 +706,8 @@ function App() {
                       />
 
                     </div>
+
+                    {/* PROJECT DETAILS */}
 
                     <div className="project-body">
 
@@ -701,9 +732,11 @@ function App() {
                         <div className="project-tech">
 
                           {project.tech.map((tech) => (
+
                             <span key={tech}>
                               {tech}
                             </span>
+
                           ))}
 
                         </div>
@@ -716,8 +749,11 @@ function App() {
                             rel="noreferrer"
                             className="project-live"
                           >
+
                             Live project
+
                             <ExternalLink size={14} />
+
                           </a>
 
                         )}
@@ -788,9 +824,11 @@ function App() {
                       </h3>
 
                       {certificate.subtitle && (
+
                         <p>
                           {certificate.subtitle}
                         </p>
+
                       )}
 
                     </div>
@@ -847,8 +885,11 @@ function App() {
                   href="mailto:bhandaridevansh085@gmail.com"
                   className="email-link"
                 >
+
                   bhandaridevansh085@gmail.com
+
                   <ArrowUpRight size={16} />
+
                 </a>
 
               </div>
@@ -859,10 +900,13 @@ function App() {
                   href="mailto:bhandaridevansh085@gmail.com"
                   className="contact-detail"
                 >
+
                   <GmailIcon />
+
                   <span>
                     Gmail
                   </span>
+
                 </a>
 
                 <a
@@ -871,10 +915,13 @@ function App() {
                   rel="noreferrer"
                   className="contact-detail"
                 >
+
                   <GithubIcon />
+
                   <span>
                     GitHub
                   </span>
+
                 </a>
 
                 <a
@@ -883,30 +930,39 @@ function App() {
                   rel="noreferrer"
                   className="contact-detail"
                 >
+
                   <LinkedinIcon />
+
                   <span>
                     LinkedIn
                   </span>
+
                 </a>
 
                 <a
                   href="tel:+917986067089"
                   className="contact-detail"
                 >
+
                   <Phone size={17} />
+
                   <span>
                     +91 79860 67089
                   </span>
+
                 </a>
 
                 <a
                   href="tel:+919464916714"
                   className="contact-detail"
                 >
+
                   <Phone size={17} />
+
                   <span>
                     +91 94649 16714
                   </span>
+
                 </a>
 
                 <div className="contact-detail">
